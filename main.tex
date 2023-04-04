@@ -1,20 +1,48 @@
 \documentclass{rapportHenallux}
 \usepackage{lipsum}
 \usepackage{listings}
+\usepackage{lettrine}
+\usepackage{tabto}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\addbibresource{biblio.bib}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\newcommand{\mycomment}[1]{}
+
 \lstset{
     basicstyle=\footnotesize,
     numbers=left,
     numberstyle=\normalsize,
-    numbersep=8pt,
+    numbersep=7pt,
     frame=l,
     commentstyle=\color{teal},
     keywordstyle=\color{blue},
-    backgroundcolor=\color{white},
+    backgroundcolor=\color{backcolour},
     showspaces=false,
     breakatwhitespace=false,
     keepspaces=true,
     showstringspaces=false,
 }
+\mycomment{
+\lstset{
+  backgroundcolor=\color{backcolour}, commentstyle=\color{teal},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+}
+
 \title{Rapport Henallux} %Titre du fichier
 
 \begin{document}
@@ -37,8 +65,7 @@
 \tabledematieres %Créer la table de matières
 
 %------------ Corps du rapport ----------------
-
-
+\setcounter{page}{1}
 \section{Première section} 
 
 \lipsum[3-4]%Effacer cette ligne et écrire le texte souhaité
@@ -77,7 +104,7 @@ L'équation \ref{eq: exemple} est cité ici.
 
 % ------- Pour écrire des variables ----------------------
 
-Pour écrire des variables dans le texte, il suffit de mettre le symbole \$ entre le texte souhaité comme : constante $\rho$. 
+Pour écrire des variables dans le texte, il suffit\cite{einstein} de mettre le symbole \$ entre le texte souhaité comme : constante $\rho$. 
 \begin{lstlisting}[language=Python, title=test.py]
 import numpy as np
     
@@ -109,4 +136,122 @@ def incmatrix(genl1,genl2):
     
     return M
 \end{lstlisting}
+
+\section{Les énumérations}
+\begin{enumerate}
+    \item Date d'enregistrement du nom de domaine:
+    \begin{itemize}
+        \item 22-01-2013
+    \end{itemize}
+    \item Sous-domaines de megacorpone:
+    \begin{itemize}
+        \item admin.megacorpone.com
+        \item beta.megacorpone.com \url{https://cp.megacorpone.net/}
+        \item fs1.megacorpone.com \url{https://cp.megacorpone.net/}
+    \end{itemize}
+\end{enumerate}
+
+\section{Les tableaux}
+\begin{tabular}{|l|c|r|}
+  \hline
+  colonne 1 & colonne 2 & colonne 3 \\
+  \hline
+  1.1 & 1.2 & 1.3 \\
+  2.1 & 2.2 & 2.3 \\
+  \hline
+\end{tabular}
+
+\begin{center}
+\begin{tabular}{||c c c c||} 
+ \hline
+ Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+ \hline\hline
+ 1 & 6 & 87837 & 787 \\ 
+ \hline
+ 2 & 7 & 78 & 5415 \\
+ \hline
+ 3 & 545 & 778 & 7507 \\
+ \hline
+ 4 & 545 & 18744 & 7560 \\
+ \hline
+ 5 & 88 & 788 & 6344 \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+ \hline
+ \multicolumn{4}{|c|}{Country List} \\
+ \hline
+ Country Name or Area Name& ISO ALPHA 2 Code &ISO ALPHA 3 Code&ISO numeric Code\\
+ \hline
+ Afghanistan   & AF    &AFG&   004\\
+ Aland Islands&   AX  & ALA   &248\\
+ Albania &AL & ALB&  008\\
+ Algeria    &DZ & DZA&  012\\
+ American Samoa&   AS  & ASM&016\\
+ Andorra& AD  & AND   &020\\
+ Angola& AO  & AGO&024\\
+ \hline
+\end{tabular}
+
+\section{Les images encadrées}
+\begin{wrapfigure}{l}{0.25\textwidth}
+\includegraphics[width=0.9\linewidth]{images/logo_henallux.png} 
+\caption{Caption1}
+\label{fig:wrapfig}
+\end{wrapfigure}
+Luigi Galvani (1737-1798) était un physicien, inventeur, professeur d’anatomie et médecin italien. Il est surtout connu pour ses travaux sur l’électricité animale. Pour lui, les animaux produisent eux-mêmes un courant électrique qui permet aux muscles de se contracter. Il a découvert que les muscles des grenouilles mortes se contractaient lorsqu’ils étaient touchés par des arcs métalliques. Cette découverte a conduit à de nouvelles recherches sur la relation entre l’électricité et la vie. Galvani a également mené des expériences sur l’électrophysiologie et a découvert que les nerfs et les muscles produisent de l’électricité. Ses travaux ont ouvert la voie à de nouvelles recherches dans le domaine de la neurologie.
+
+\begin{lstlisting}[language=Java, title=test.sql]
+const sql = require('mssql')
+const { faker } = require('@faker-js/faker');
+faker.locale = 'fr';
+const config = {
+ user: "sa",
+ password: "p@s5w0rd",
+ database: "JSMarket",
+ server: 'docker.staffe.net',
+ options: {
+ encrypt: true,
+ trustServerCertificate: true
+ }
+}
+const numOfData = 15000;
+var incr = 0;
+while(incr != numOfData){
+ sql.connect(config, function (err) {
+ 
+ if (err) console.log(err);
+ 
+ // create Request object
+ var request = new sql.Request();
+ 
+ // query to the database and get the records
+ var ville = Math.floor(Math.random() * 27) + 1;
+ var random = Math.floor(Math.random() * 3);
+ if(random == 2){
+ var valueR = Math.floor(Math.random() * 10) + 1;
+ }else{
+ var valueR = "NULL"
+\end{lstlisting}
+\newpage \thispagestyle{empty}
+~~
+\vspace{150px}
+
+{\fontsize{24}{25}\selectfont \textbf{Remerciements}}
+\vspace{10px}
+
+\lettrine[findent=2pt]{\textbf{T}}{ }est lettrine 
+
+\tabto{6cm} \lipsum[2-3]
+
+% Bibliographie
+\fairebibliographie
+
+% Table des figures
+\newpage \listoffigures
+
+% Table des programmes
+
 \end{document}

@@ -1,12 +1,14 @@
 \LoadClass[a4paper,12pt]{article} % Classe du document
-
 %--------------------- Packages ------------------------
 
 \RequirePackage[french]{babel} %Langue du document
 \RequirePackage[utf8]{inputenc} %Caractères spéciaux
+\RequirePackage{fix-cm}
 \RequirePackage[section]{placeins}%Pour placement de section
 \RequirePackage[T1]{fontenc} %Quelques lettres qui sont pas inclus dans UTF-8
 \RequirePackage{mathtools} %Paquet pour des équations et symboles mathématiques
+\RequirePackage[style = apa]{biblatex}
+%\RequirePackage{biblatex}
 \RequirePackage{siunitx} %Pour écrire avec la notation scientifique (Ex.: \num{2e+9})
 \RequirePackage{float} %Pour placement d'images
 \RequirePackage{graphicx} %Paquet pour insérer des images
@@ -22,7 +24,6 @@
 \RequirePackage{url}
 \RequirePackage[hidelinks]{hyperref}%Paquet pour insérer légendes dans des sous-figures comme Figure 1a, 1b
 \RequirePackage[left=2.5cm,right=2.5cm,top=2cm,bottom=3.5cm]{geometry} 
-
 
 %-------------------- Informations sur le rapport ----------------------
 
@@ -78,6 +79,7 @@
 }
 
 \newcommand{\tabledematieres}{
+\thispagestyle{empty}
 \tableofcontents
 \newpage
 }
@@ -91,5 +93,13 @@
 \end{figure}
 }
 
+\newcommand{\fairebibliographie}{
+\newpage 
+\section{Bibliographie}{
+\printbibliography[keyword={physics}, title=Lié à la physique] \nocite{*}
 
+\printbibliography[keyword={programming}, title=Lié à la programmation] \nocite{*}
 
+\printbibliography[title=Toute la bibliographie] \nocite{*}
+}
+}
