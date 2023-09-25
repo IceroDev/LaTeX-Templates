@@ -1,0 +1,12 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{\numberline {1}PRELIMINARIES}{1}{chapter.1}%
+\contentsline {section}{Première section}{1}{section*.1}%
+\contentsline {subsection}{Subsection}{1}{subsection*.2}%
+\contentsline {subsubsection}{SubSubSections ma gueule}{1}{subsubsection*.3}%
+\contentsline {section}{Deuxième section}{2}{section*.4}%
+\contentsline {section}{Quelques commandes}{2}{section*.5}%
+\contentsline {section}{Les énumérations}{3}{section*.7}%
+\contentsline {section}{Les tableaux}{3}{section*.8}%
+\contentsline {section}{Les images encadrées}{4}{section*.9}%
+\contentsline {section}{Bibliographie}{7}{section*.11}%
+\contentsfinish 

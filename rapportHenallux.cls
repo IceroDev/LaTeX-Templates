@@ -1,4 +1,4 @@
-\LoadClass[a4paper,12pt]{article} % Classe du document
+\LoadClass[a4paper,12pt]{report} % Classe du document
 %--------------------- Packages ------------------------
 
 \RequirePackage[french]{babel} %Langue du document
@@ -15,7 +15,9 @@
 \RequirePackage[justification=centering]{caption} %Pour les légendes centralisées
 \RequirePackage{subcaption}
 \RequirePackage{wallpaper}
+\RequirePackage{tocloft}
 \RequirePackage{nomencl}
+\RequirePackage{titlesec}
 %\makenomenclature
 \RequirePackage{fancyhdr}
 %\pagestyle{fancy}
@@ -80,6 +82,12 @@
 
 \newcommand{\tabledematieres}{
 \thispagestyle{empty}
+\pagenumbering{gobble}
+\setlength{\cftsubsubsecindent}{2em} % Indentation for subsubsections
+\setlength{\cftsubsecindent}{1.5em} % Indentation for subsections
+\setlength{\cftsecindent}{1em} % Indentation for sections
+\setlength{\cftchapindent}{0em} % Indentation for chapters
+\setcounter{tocdepth}{3} % Include subsubsections in the table of contents
 \tableofcontents
 \newpage
 }

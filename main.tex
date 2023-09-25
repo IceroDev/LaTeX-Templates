@@ -5,9 +5,29 @@
 \usepackage{tabto}
 \usepackage{wrapfig}
 \usepackage{multirow}
+
+% Custom Chapters
+\usepackage{titlesec}
+\usepackage{titletoc}
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{}{15pt}{\Huge}
+\setcounter{secnumdepth}{0}
 \addbibresource{biblio.bib}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \newcommand{\mycomment}[1]{}
+
+% Table des matières
+\usepackage{tocloft}
+
+\cftsetindents{section}{0em}{2em}
+\cftsetindents{subsection}{0em}{2em}
+
+\renewcommand\cfttoctitlefont{\hfill\Large\bfseries}
+\renewcommand\cftaftertoctitle{\hfill\mbox{}}
+
+\setcounter{tocdepth}{2}
+
+%fin
 
 \lstset{
     basicstyle=\footnotesize,
@@ -65,12 +85,16 @@
 \tabledematieres %Créer la table de matières
 
 %------------ Corps du rapport ----------------
+\pagenumbering{arabic}
 \setcounter{page}{1}
+\chapter{PRELIMINARIES}
 \section{Première section} 
 
 \lipsum[3-4]%Effacer cette ligne et écrire le texte souhaité
 
 \subsection{Subsection}
+
+\subsubsection{SubSubSections ma gueule}
 
 \lipsum[3-4] %Effacer cette ligne et écrire le texte souhaité
 
@@ -196,7 +220,7 @@ def incmatrix(genl1,genl2):
 \end{tabular}
 
 \section{Les images encadrées}
-\begin{wrapfigure}{l}{0.25\textwidth}
+\begin{wrapfigure}{l}{0.15\textwidth}
 \includegraphics[width=0.9\linewidth]{images/logo_henallux.png} 
 \caption{Caption1}
 \label{fig:wrapfig}
@@ -235,6 +259,7 @@ while(incr != numOfData){
  }else{
  var valueR = "NULL"
 \end{lstlisting}
+
 \newpage \thispagestyle{empty}
 ~~
 \vspace{150px}
